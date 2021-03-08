@@ -1,0 +1,10 @@
+.container {
+  width: 100%;
+  align-items: center;
+  align-content: center;
+}
+
+.chart {
+  margin-bottom: 10rem;
+  align-self: center;
+}

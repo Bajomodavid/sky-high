@@ -1,0 +1,90 @@
+<div ngxUiLoaderBlurred>
+  <div class="form">
+    <form class="form inline-form text-center">
+      <div class="form-check">
+        <input class="form-check-input position-static" type="radio" name="blankRadio" id="blankRadio1" value="1" aria-label="..." (change)="changeType($event)" checked> Sales
+      </div>
+      <div class="form-check">
+        <input class="form-check-input position-static" type="radio" name="blankRadio" id="blankRadio1" value="2" aria-label="..." (change)="changeType($event)"> Total Items Quanity Sold
+      </div>
+      <div class="form-check">
+        <input class="form-check-input position-static" type="radio" name="blankRadio" id="blankRadio1" value="3" aria-label="..." (change)="changeType($event)"> Earnings
+      </div>
+      <br />
+      <select class="form-control col-md-4 offset-4" aria-label="Default select example" (change)="changeProcess($event)">
+        <option selected>Change Data Processing</option>
+        <option value="1">Process by City</option>
+        <option value="2">Process by  Department</option>
+      </select>
+    </form>
+  </div>
+  <div class="spinner" *ngIf="!show">
+    Hello
+  </div>
+  <div class="container" *ngIf="show">
+    <div class="chart">
+      <ngx-charts-bar-vertical
+        [view]="view"
+        [results]="analytics"
+        [gradient]="gradient"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        (select)="onSelect($event)">
+      </ngx-charts-bar-vertical>
+    </div>
+
+    <div class="chart">
+      <ngx-charts-line-chart
+        [view]="view"
+        [results]="multi"
+        [gradient]="gradient"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        (select)="onSelect($event)">
+      </ngx-charts-line-chart>
+    </div>
+
+    <div class="chart">
+      <ngx-charts-pie-chart
+        [view]="view"
+        [results]="analytics"
+        [gradient]="gradient"
+        [legend]="showLegend"
+        [legendPosition]="legendPosition"
+        [labels]="showLabels"
+        [doughnut]="isDoughnut"
+        (select)="onSelect($event)"
+        (activate)="onActivate($event)"
+        (deactivate)="onDeactivate($event)"
+        >
+      </ngx-charts-pie-chart>
+    </div>
+
+    <div class="chart">
+      <ngx-charts-bar-vertical-stacked
+        [view]="view"
+        [results]="multi"
+        [gradient]="gradient"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        [animations]="animations"
+        (select)="onSelect($event)">
+      </ngx-charts-bar-vertical-stacked>
+    </div>
+  </div>
+
+</div>
+<ngx-ui-loader></ngx-ui-loader>
